@@ -53,7 +53,7 @@
     
     // Get the object to display and set the value in the cell.
     Radioisotope *radioisotope = [self.dataController.isotopes objectAtIndex:indexPath.row];
-	cell.textLabel.text = radioisotope.name;
+	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
 	return cell;
 }
 
