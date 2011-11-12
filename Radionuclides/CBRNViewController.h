@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CBRNDataController.h"
+#import "CBRNDetailViewController.h"
 
 @interface CBRNViewController : UITableViewController
 

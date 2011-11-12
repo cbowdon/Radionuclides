@@ -57,5 +57,21 @@
 	return cell;
 }
 
+#pragma mark - Table view selection
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    /*
+     When a row is selected, the segue creates the detail view controller as the destination.
+     Set the detail view controller's detail item to the item associated with the selected row.
+     */
+    if ([[segue identifier] isEqualToString:@"ShowSelectedRadioisotope"]) {
+		
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        CBRNDetailViewController *detailViewController = [segue destinationViewController];
+        detailViewController.radioisotope = [self.dataController.isotopes objectAtIndex:selectedRowIndex.row];
+    }
+}
+
 
 @end
