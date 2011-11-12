@@ -69,7 +69,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 1;
+	if (section > 1) {
+		NSString *sectionName = [self.sections objectAtIndex:section];
+		return [[self.radioisotope.contents objectForKey:sectionName] count];
+	} else {
+		return 1;
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -89,25 +94,10 @@
 		cell.textLabel.text = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];		
 	} else if ([sectionName isEqualToString:@"Half life"]){			
 		cell.textLabel.text = [NSString stringWithFormat:@"%.3f %@", [self.radioisotope.halfLifeNumber doubleValue], self.radioisotope.halfLifeUnit];;
-	} else if ([sectionName isEqualToString:@"Progeny"]) {
-		Progeny *prog = [self.radioisotope.progeny objectAtIndex:indexPath.row];
-		NSString *line = [NSString stringWithFormat:@"%.3f%c\t %@", 100*[prog.probability doubleValue], '%', prog.name];	
+	} else {		
+		id thing = [self.radioisotope.contents objectForKey:sectionName];
+		NSString *line = [[thing objectAtIndex:indexPath.row] stringValue];		
 		cell.textLabel.text = line;
-	} else if ([sectionName isEqualToString:@"Alphas"]) {
-		DiscreteParticle *alpha = [self.radioisotope.alphas objectAtIndex:indexPath.row];
-		double energy = [alpha.energy doubleValue];
-		double probability = 100*[alpha.probability doubleValue];
-		NSString *line = [NSString stringWithFormat:@"%.3f%c\t %.3f MeV", probability, '%', energy];	
-		cell.textLabel.text = line;
-	} else if ([sectionName isEqualToString:@"Betas"]) {
-		ContinuousParticle *beta = [self.radioisotope.betas objectAtIndex:indexPath.row];
-		double energy = [beta.energy doubleValue];
-		double maxEnergy = [beta.maxEnergy doubleValue];
-		double probability = 100*[beta.probability doubleValue];
-		NSString *line = [NSString stringWithFormat:@"%.3f%c\t %.3f MeV (max)\t [%.3f MeV (avg)]", probability, '%', maxEnergy, energy];	
-		cell.textLabel.text = line;
-	} else {
-		cell.textLabel.text = @"Unknown";
 	}
     return cell;
 }
