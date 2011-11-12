@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBRNDataController.h"
+#import "CBRNViewController.h"
 
 @interface CBRNAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) CBRNDataController *dataController;
+@property (strong, nonatomic) CBRNViewController *viewController;
 
 @end

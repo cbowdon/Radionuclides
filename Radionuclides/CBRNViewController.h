@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBRNDataController.h"
 
 @interface CBRNViewController : UITableViewController
+
+@property (nonatomic, strong) CBRNDataController *dataController;
 
 @end

@@ -10,6 +10,8 @@
 
 @implementation CBRNViewController
 
+@synthesize dataController = _dataController;
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -31,6 +33,28 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Only one section.
     return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Only one section, so return the number of items in the list.
+    return [self.dataController isotopesCount];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+	static NSString *CellIdentifier = @"NameCell";
+	
+	// Dequeue or create a cell of the appropriate type.
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    // Get the object to display and set the value in the cell.
+    Radioisotope *radioisotope = [self.dataController.isotopes objectAtIndex:indexPath.row];
+	cell.textLabel.text = radioisotope.name;
+	return cell;
 }
 
 

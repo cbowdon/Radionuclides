@@ -10,11 +10,19 @@
 
 @implementation CBRNAppDelegate
 
-@synthesize window = _window;
+@synthesize window=_window, viewController=_viewController, dataController=_dataController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+	// Create the data controller and pass it to the root view controller.
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    CBRNViewController *rootViewController = (CBRNViewController *)[navigationController topViewController];
+    
+    CBRNDataController *controller = [[CBRNDataController alloc] init];
+    rootViewController.dataController = controller;
+    self.dataController = controller;
+
     return YES;
 }
 							
