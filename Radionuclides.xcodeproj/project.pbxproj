@@ -1,0 +1,492 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83D3C5E9146E8F490056312B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5E8146E8F490056312B /* UIKit.framework */; };
+		83D3C5EB146E8F490056312B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EA146E8F490056312B /* Foundation.framework */; };
+		83D3C5ED146E8F490056312B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EC146E8F490056312B /* CoreGraphics.framework */; };
+		83D3C5F3146E8F490056312B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C5F1146E8F490056312B /* InfoPlist.strings */; };
+		83D3C5F5146E8F490056312B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C5F4146E8F490056312B /* main.m */; };
+		83D3C5F9146E8F490056312B /* CBRNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C5F8146E8F490056312B /* CBRNAppDelegate.m */; };
+		83D3C5FC146E8F490056312B /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C5FA146E8F490056312B /* MainStoryboard.storyboard */; };
+		83D3C5FF146E8F490056312B /* CBRNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C5FE146E8F490056312B /* CBRNViewController.m */; };
+		83D3C607146E8F490056312B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C606146E8F490056312B /* SenTestingKit.framework */; };
+		83D3C608146E8F490056312B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5E8146E8F490056312B /* UIKit.framework */; };
+		83D3C609146E8F490056312B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EA146E8F490056312B /* Foundation.framework */; };
+		83D3C611146E8F490056312B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C60F146E8F490056312B /* InfoPlist.strings */; };
+		83D3C614146E8F490056312B /* RadionuclidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C613146E8F490056312B /* RadionuclidesTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83D3C60A146E8F490056312B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83D3C5DB146E8F490056312B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83D3C5E3146E8F490056312B;
+			remoteInfo = Radionuclides;
+		};
+		83D3C625146E8F7E0056312B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83D3C61D146E8F7E0056312B /* RadData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 835B7BF2145C5A1700AA8CA5;
+			remoteInfo = RadData;
+		};
+		83D3C627146E8F7E0056312B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83D3C61D146E8F7E0056312B /* RadData.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 835B7C02145C5A1700AA8CA5;
+			remoteInfo = RadDataTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83D3C5E4146E8F490056312B /* Radionuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radionuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		83D3C5E8146E8F490056312B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		83D3C5EA146E8F490056312B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		83D3C5EC146E8F490056312B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		83D3C5F0146E8F490056312B /* Radionuclides-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Radionuclides-Info.plist"; sourceTree = "<group>"; };
+		83D3C5F2146E8F490056312B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83D3C5F4146E8F490056312B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83D3C5F6146E8F490056312B /* Radionuclides-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Radionuclides-Prefix.pch"; sourceTree = "<group>"; };
+		83D3C5F7146E8F490056312B /* CBRNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBRNAppDelegate.h; sourceTree = "<group>"; };
+		83D3C5F8146E8F490056312B /* CBRNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRNAppDelegate.m; sourceTree = "<group>"; };
+		83D3C5FB146E8F490056312B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		83D3C5FD146E8F490056312B /* CBRNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBRNViewController.h; sourceTree = "<group>"; };
+		83D3C5FE146E8F490056312B /* CBRNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBRNViewController.m; sourceTree = "<group>"; };
+		83D3C605146E8F490056312B /* RadionuclidesTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadionuclidesTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		83D3C606146E8F490056312B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		83D3C60E146E8F490056312B /* RadionuclidesTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RadionuclidesTests-Info.plist"; sourceTree = "<group>"; };
+		83D3C610146E8F490056312B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		83D3C612146E8F490056312B /* RadionuclidesTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RadionuclidesTests.h; sourceTree = "<group>"; };
+		83D3C613146E8F490056312B /* RadionuclidesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RadionuclidesTests.m; sourceTree = "<group>"; };
+		83D3C61D146E8F7E0056312B /* RadData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RadData.xcodeproj; path = ../RadData/RadData.xcodeproj; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83D3C5E1146E8F490056312B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C5E9146E8F490056312B /* UIKit.framework in Frameworks */,
+				83D3C5EB146E8F490056312B /* Foundation.framework in Frameworks */,
+				83D3C5ED146E8F490056312B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83D3C601146E8F490056312B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C607146E8F490056312B /* SenTestingKit.framework in Frameworks */,
+				83D3C608146E8F490056312B /* UIKit.framework in Frameworks */,
+				83D3C609146E8F490056312B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83D3C5D9146E8F490056312B = {
+			isa = PBXGroup;
+			children = (
+				83D3C61D146E8F7E0056312B /* RadData.xcodeproj */,
+				83D3C5EE146E8F490056312B /* Radionuclides */,
+				83D3C60C146E8F490056312B /* RadionuclidesTests */,
+				83D3C5E7146E8F490056312B /* Frameworks */,
+				83D3C5E5146E8F490056312B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83D3C5E5146E8F490056312B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C5E4146E8F490056312B /* Radionuclides.app */,
+				83D3C605146E8F490056312B /* RadionuclidesTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83D3C5E7146E8F490056312B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C5E8146E8F490056312B /* UIKit.framework */,
+				83D3C5EA146E8F490056312B /* Foundation.framework */,
+				83D3C5EC146E8F490056312B /* CoreGraphics.framework */,
+				83D3C606146E8F490056312B /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83D3C5EE146E8F490056312B /* Radionuclides */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C5F7146E8F490056312B /* CBRNAppDelegate.h */,
+				83D3C5F8146E8F490056312B /* CBRNAppDelegate.m */,
+				83D3C5FA146E8F490056312B /* MainStoryboard.storyboard */,
+				83D3C5FD146E8F490056312B /* CBRNViewController.h */,
+				83D3C5FE146E8F490056312B /* CBRNViewController.m */,
+				83D3C5EF146E8F490056312B /* Supporting Files */,
+			);
+			path = Radionuclides;
+			sourceTree = "<group>";
+		};
+		83D3C5EF146E8F490056312B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C5F0146E8F490056312B /* Radionuclides-Info.plist */,
+				83D3C5F1146E8F490056312B /* InfoPlist.strings */,
+				83D3C5F4146E8F490056312B /* main.m */,
+				83D3C5F6146E8F490056312B /* Radionuclides-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83D3C60C146E8F490056312B /* RadionuclidesTests */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C612146E8F490056312B /* RadionuclidesTests.h */,
+				83D3C613146E8F490056312B /* RadionuclidesTests.m */,
+				83D3C60D146E8F490056312B /* Supporting Files */,
+			);
+			path = RadionuclidesTests;
+			sourceTree = "<group>";
+		};
+		83D3C60D146E8F490056312B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C60E146E8F490056312B /* RadionuclidesTests-Info.plist */,
+				83D3C60F146E8F490056312B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83D3C61E146E8F7E0056312B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83D3C626146E8F7E0056312B /* libRadData.a */,
+				83D3C628146E8F7E0056312B /* RadDataTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83D3C5E3146E8F490056312B /* Radionuclides */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83D3C617146E8F490056312B /* Build configuration list for PBXNativeTarget "Radionuclides" */;
+			buildPhases = (
+				83D3C5E0146E8F490056312B /* Sources */,
+				83D3C5E1146E8F490056312B /* Frameworks */,
+				83D3C5E2146E8F490056312B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Radionuclides;
+			productName = Radionuclides;
+			productReference = 83D3C5E4146E8F490056312B /* Radionuclides.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83D3C604146E8F490056312B /* RadionuclidesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83D3C61A146E8F490056312B /* Build configuration list for PBXNativeTarget "RadionuclidesTests" */;
+			buildPhases = (
+				83D3C600146E8F490056312B /* Sources */,
+				83D3C601146E8F490056312B /* Frameworks */,
+				83D3C602146E8F490056312B /* Resources */,
+				83D3C603146E8F490056312B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83D3C60B146E8F490056312B /* PBXTargetDependency */,
+			);
+			name = RadionuclidesTests;
+			productName = RadionuclidesTests;
+			productReference = 83D3C605146E8F490056312B /* RadionuclidesTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83D3C5DB146E8F490056312B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 83D3C5DE146E8F490056312B /* Build configuration list for PBXProject "Radionuclides" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 83D3C5D9146E8F490056312B;
+			productRefGroup = 83D3C5E5146E8F490056312B /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 83D3C61E146E8F7E0056312B /* Products */;
+					ProjectRef = 83D3C61D146E8F7E0056312B /* RadData.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				83D3C5E3146E8F490056312B /* Radionuclides */,
+				83D3C604146E8F490056312B /* RadionuclidesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		83D3C626146E8F7E0056312B /* libRadData.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRadData.a;
+			remoteRef = 83D3C625146E8F7E0056312B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		83D3C628146E8F7E0056312B /* RadDataTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RadDataTests.octest;
+			remoteRef = 83D3C627146E8F7E0056312B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83D3C5E2146E8F490056312B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C5F3146E8F490056312B /* InfoPlist.strings in Resources */,
+				83D3C5FC146E8F490056312B /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83D3C602146E8F490056312B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C611146E8F490056312B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		83D3C603146E8F490056312B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83D3C5E0146E8F490056312B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C5F5146E8F490056312B /* main.m in Sources */,
+				83D3C5F9146E8F490056312B /* CBRNAppDelegate.m in Sources */,
+				83D3C5FF146E8F490056312B /* CBRNViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83D3C600146E8F490056312B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83D3C614146E8F490056312B /* RadionuclidesTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83D3C60B146E8F490056312B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83D3C5E3146E8F490056312B /* Radionuclides */;
+			targetProxy = 83D3C60A146E8F490056312B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83D3C5F1146E8F490056312B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83D3C5F2146E8F490056312B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		83D3C5FA146E8F490056312B /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83D3C5FB146E8F490056312B /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+		83D3C60F146E8F490056312B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83D3C610146E8F490056312B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83D3C615146E8F490056312B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		83D3C616146E8F490056312B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83D3C618146E8F490056312B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radionuclides/Radionuclides-Prefix.pch";
+				INFOPLIST_FILE = "Radionuclides/Radionuclides-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		83D3C619146E8F490056312B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radionuclides/Radionuclides-Prefix.pch";
+				INFOPLIST_FILE = "Radionuclides/Radionuclides-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		83D3C61B146E8F490056312B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Radionuclides.app/Radionuclides";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radionuclides/Radionuclides-Prefix.pch";
+				INFOPLIST_FILE = "RadionuclidesTests/RadionuclidesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		83D3C61C146E8F490056312B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Radionuclides.app/Radionuclides";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Radionuclides/Radionuclides-Prefix.pch";
+				INFOPLIST_FILE = "RadionuclidesTests/RadionuclidesTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83D3C5DE146E8F490056312B /* Build configuration list for PBXProject "Radionuclides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D3C615146E8F490056312B /* Debug */,
+				83D3C616146E8F490056312B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83D3C617146E8F490056312B /* Build configuration list for PBXNativeTarget "Radionuclides" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D3C618146E8F490056312B /* Debug */,
+				83D3C619146E8F490056312B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		83D3C61A146E8F490056312B /* Build configuration list for PBXNativeTarget "RadionuclidesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83D3C61B146E8F490056312B /* Debug */,
+				83D3C61C146E8F490056312B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83D3C5DB146E8F490056312B /* Project object */;
+}
