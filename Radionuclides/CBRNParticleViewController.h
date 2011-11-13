@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Radioisotope.h"
 
 @interface CBRNParticleViewController : UITableViewController {
 	NSArray *_contents;

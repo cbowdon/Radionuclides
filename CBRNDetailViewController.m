@@ -69,8 +69,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (section > 1) {
-		NSString *sectionName = [self.sections objectAtIndex:section];
+	NSString *sectionName = [self.sections objectAtIndex:section];
+	if ([sectionName isEqualToString:@"Progeny"]) {
 		return [[self.radioisotope.contents objectForKey:sectionName] count];
 	} else {
 		return 1;
@@ -79,16 +79,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *MetaCellIdentifier = @"MetaCell";
-	static NSString *ContentCellIdentifier = @"ContentCell";
-
     
-	NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+	// types of cell
+	static NSString *MetaCellIdentifier = @"MetaCell";
+	static NSString *ContentCellIdentifier = @"ContentCell";
+    
 	
+    // Configure the cells...		
+	NSString *sectionName = [self.sections objectAtIndex:indexPath.section];	
 	UITableViewCell *cell;
 	
-    // Configure the cell...		
 	if ([sectionName isEqualToString:@"Atomic number"]) {	
+		// the Z cell links nowhere and contains just an int
 		
 		cell = [tableView dequeueReusableCellWithIdentifier:MetaCellIdentifier];
 		if (cell == nil) {
@@ -101,6 +103,7 @@
 		cell.accessoryType = UITableViewCellAccessoryNone;
 		
 	} else if ([sectionName isEqualToString:@"Half life"]){	
+		// the HL cell links nowhere and contains a string
 		
 		cell = [tableView dequeueReusableCellWithIdentifier:MetaCellIdentifier];
 		if (cell == nil) {
@@ -112,19 +115,36 @@
 		cell.detailTextLabel.text = nil;
 		cell.accessoryType = UITableViewCellAccessoryNone;
 
-	} else {		
+	} else if ([sectionName isEqualToString:@"Progeny"]) {
+		// the progeny cell contains the progeny and their probability
+		// links directly to the progeny itself?
 		
 		cell = [tableView dequeueReusableCellWithIdentifier:ContentCellIdentifier];
 		if (cell == nil) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ContentCellIdentifier];
 		}
-
 		
 		id thing = [self.radioisotope.contents objectForKey:sectionName];
 		NSString *line = [[thing objectAtIndex:indexPath.row] stringValue];		
 		cell.textLabel.text = line;
-		double prob = 100*[[[thing objectAtIndex:indexPath.row] probability] doubleValue];
+		double prob = 100*[[[thing objectAtIndex:indexPath.row] probability] doubleValue];	
 		cell.detailTextLabel.text = [NSString stringWithFormat:@"%.3f%c", prob, '%'];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+	else {		
+		// if present, particle cells contain a count of emissions
+		// link to a detail view
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:ContentCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ContentCellIdentifier];
+		}
+		
+		id thing = [self.radioisotope.contents objectForKey:sectionName];
+		NSString *word = [thing count] != 1? @"emissions" : @"emission";
+		NSString *line = [NSString stringWithFormat:@"%i %@", [thing count], word];
+		cell.textLabel.text = line;
+		cell.detailTextLabel.text = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
 	}
@@ -145,21 +165,15 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    /*
-     When a row is selected, the segue creates the detail view controller as the destination.
-     Set the detail view controller's detail item to the item associated with the selected row.
-     */
 	
-	
-    if ([[segue identifier] isEqualToString:@"ShowSelectedParticles"]) {
+	if ([[segue identifier] isEqualToString:@"ShowSelectedParticles"]) {
     
-		NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+		NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];	
+		NSString *sectionName = [self.sections objectAtIndex:selectedRowIndex.section];
+		NSArray *particles = [self.radioisotope.contents objectForKey:sectionName];
 		
         CBRNParticleViewController *particleViewController = [segue destinationViewController];		
-		
-
-		particleViewController.contents = nil;
-
+		particleViewController.contents = particles;
     }
 }
 
