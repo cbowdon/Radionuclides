@@ -82,6 +82,7 @@
     
 	// types of cell
 	static NSString *MetaCellIdentifier = @"MetaCell";
+	static NSString *ProgenyCellIdentifier = @"ProgenyCell";
 	static NSString *ContentCellIdentifier = @"ContentCell";
     
 	
@@ -117,11 +118,10 @@
 
 	} else if ([sectionName isEqualToString:@"Progeny"]) {
 		// the progeny cell contains the progeny and their probability
-		// links directly to the progeny itself?
 		
-		cell = [tableView dequeueReusableCellWithIdentifier:ContentCellIdentifier];
+		cell = [tableView dequeueReusableCellWithIdentifier:ProgenyCellIdentifier];
 		if (cell == nil) {
-			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ContentCellIdentifier];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProgenyCellIdentifier];
 		}
 		
 		id thing = [self.radioisotope.contents objectForKey:sectionName];
@@ -129,9 +129,9 @@
 		cell.textLabel.text = line;
 		double prob = 100*[[[thing objectAtIndex:indexPath.row] probability] doubleValue];	
 		cell.detailTextLabel.text = [NSString stringWithFormat:@"%.3f%c", prob, '%'];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	}
-	else {		
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		
+	} else {		
 		// if present, particle cells contain a count of emissions
 		// link to a detail view
 		
@@ -148,7 +148,6 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
 	}
-
 	return cell;
 
 }
@@ -175,6 +174,7 @@
         CBRNParticleViewController *particleViewController = [segue destinationViewController];		
 		particleViewController.contents = particles;
     }
+
 }
 
 
