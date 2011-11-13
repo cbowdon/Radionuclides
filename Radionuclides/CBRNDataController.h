@@ -11,12 +11,10 @@
 
 @interface CBRNDataController : NSObject {
 	RadData *_data;
-	NSArray *_sectionData;
 }
 
 @property (readonly, strong) RadData *data;
 @property (readonly, strong) NSArray *isotopes;
-@property (readonly, strong) NSArray *sectionData;
 
 -(NSUInteger)isotopesCount;
 

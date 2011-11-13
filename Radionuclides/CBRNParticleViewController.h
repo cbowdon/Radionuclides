@@ -11,8 +11,10 @@
 
 @interface CBRNParticleViewController : UITableViewController {
 	NSArray *_contents;
+	NSString *_particleType;
 }
 
 @property (nonatomic, strong) NSArray *contents;
+@property (nonatomic, strong) NSString *particleType;
 
 @end

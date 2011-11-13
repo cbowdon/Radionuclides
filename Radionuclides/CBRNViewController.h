@@ -13,5 +13,6 @@
 @interface CBRNViewController : UITableViewController
 
 @property (nonatomic, strong) CBRNDataController *dataController;
+@property (nonatomic, strong) NSMutableArray *radionuclides;
 
 @end

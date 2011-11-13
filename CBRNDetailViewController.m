@@ -97,7 +97,6 @@
 		if (cell == nil) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MetaCellIdentifier];
 		}
-
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];	
 		cell.detailTextLabel.text = nil;
@@ -156,7 +155,6 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
 {    
-    // to do: make this "Alphas (13)"
 	return [self.sections objectAtIndex:section];
 }
 
@@ -170,9 +168,11 @@
 		NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];	
 		NSString *sectionName = [self.sections objectAtIndex:selectedRowIndex.section];
 		NSArray *particles = [self.radioisotope.contents objectForKey:sectionName];
+		NSString *pType = [self.sections objectAtIndex:selectedRowIndex.section];
 		
         CBRNParticleViewController *particleViewController = [segue destinationViewController];		
 		particleViewController.contents = particles;
+		particleViewController.particleType = pType;
     }
 
 }
