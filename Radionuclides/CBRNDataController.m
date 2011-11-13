@@ -11,13 +11,13 @@
 
 @implementation CBRNDataController
 
-@synthesize data = _data;
+@synthesize data = _data, sectionData = _sectionData;
 
 -(id)init {
 	if ([super init]) {
 		_data = [[RadData alloc] init];		
 	}		
-
+	
 	return self;
 }
 
@@ -27,6 +27,27 @@
 
 -(NSArray*)isotopes {
 	return self.data.isotopes;
+}
+
+-(NSArray*)sectionData
+{
+	if (!_sectionData) {
+		
+		NSMutableArray *mut = [[NSMutableArray alloc] initWithCapacity:26];
+		
+		NSUInteger i;
+		for (i = 0; i < 26; i++) {
+			NSString *letter = [NSString stringWithFormat:@"%c", (char)(i+65)];
+			NSArray *topesForLetter = [self.data findIsotopeWithName:letter];
+			[mut addObject:topesForLetter];
+		}	
+		
+		_sectionData = [[NSArray alloc] initWithArray:mut];
+		
+	}
+	
+	return _sectionData;
+	
 }
 
 @end

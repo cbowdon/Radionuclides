@@ -32,12 +32,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Only one section.
-    return 1;
+    return 26;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Only one section, so return the number of items in the list.
-    return [self.dataController isotopesCount];
+	NSString *letter = [NSString stringWithFormat:@"%c", (char)(section+65)];
+	NSInteger rows = [[self.dataController.data findIsotopeWithName:letter] count];
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,14 +50,35 @@
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
     // Get the object to display and set the value in the cell.
-    Radioisotope *radioisotope = [self.dataController.isotopes objectAtIndex:indexPath.row];
+	NSArray * isotopesInSection = [self.dataController.sectionData objectAtIndex:indexPath.section];
+    Radioisotope *radioisotope = [isotopesInSection objectAtIndex:indexPath.row];
 	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", radioisotope.halfLifeString];
 	return cell;
 }
+
+#pragma mark Section header titles
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
+{    
+	NSString *letter = [NSString stringWithFormat:@"%c", (char)(section+65)];
+	return letter;
+}
+
+-(NSArray*)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+	NSUInteger i;
+	NSMutableArray *mut = [[NSMutableArray alloc] init];
+	for (i = 0; i < 26; i++) {
+		[mut addObject:[NSString stringWithFormat:@"%c", (char)(65+i)]];
+	}
+	return [[NSArray alloc] initWithArray:mut];	
+}
+
 
 #pragma mark - Table view selection
 
@@ -69,7 +92,8 @@
 		
         NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
         CBRNDetailViewController *detailViewController = [segue destinationViewController];
-        detailViewController.radioisotope = [self.dataController.isotopes objectAtIndex:selectedRowIndex.row];
+		NSArray * isotopesInSection = [self.dataController.sectionData objectAtIndex:selectedRowIndex.section];		
+        detailViewController.radioisotope = [isotopesInSection objectAtIndex:selectedRowIndex.row];
     }
 }
 

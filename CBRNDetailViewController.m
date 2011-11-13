@@ -81,23 +81,27 @@
 {
     static NSString *CellIdentifier = @"RadioisotopeCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell...
-	
 	NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
 	
+	// if section is not atomic number or halflife, let it be a subtitle cell
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+	if (cell == nil) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+	}
+    
+    // Configure the cell...		
 	if ([sectionName isEqualToString:@"Atomic number"]) {		
 		cell.textLabel.text = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];		
+		cell.detailTextLabel.text = nil;
 	} else if ([sectionName isEqualToString:@"Half life"]){			
-		cell.textLabel.text = [NSString stringWithFormat:@"%.3f %@", [self.radioisotope.halfLifeNumber doubleValue], self.radioisotope.halfLifeUnit];;
+		cell.textLabel.text = self.radioisotope.halfLifeString;
+		cell.detailTextLabel.text = nil;
 	} else {		
 		id thing = [self.radioisotope.contents objectForKey:sectionName];
 		NSString *line = [[thing objectAtIndex:indexPath.row] stringValue];		
 		cell.textLabel.text = line;
+		double prob = 100*[[[thing objectAtIndex:indexPath.row] probability] doubleValue];
+		cell.detailTextLabel.text = [NSString stringWithFormat:@"%.3f%c", prob, '%'];
 	}
     return cell;
 }
