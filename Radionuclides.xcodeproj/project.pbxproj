@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83377726146FDBF6002F210F /* CBRNParticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83377725146FDBF6002F210F /* CBRNParticleViewController.m */; };
 		836A224D146ECE48002A8819 /* CBRNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836A224C146ECE48002A8819 /* CBRNDetailViewController.m */; };
 		83D3C5E9146E8F490056312B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5E8146E8F490056312B /* UIKit.framework */; };
 		83D3C5EB146E8F490056312B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EA146E8F490056312B /* Foundation.framework */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83377724146FDBF6002F210F /* CBRNParticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRNParticleViewController.h; sourceTree = "<group>"; };
+		83377725146FDBF6002F210F /* CBRNParticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRNParticleViewController.m; sourceTree = "<group>"; };
 		836A224B146ECE48002A8819 /* CBRNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBRNDetailViewController.h; path = ../CBRNDetailViewController.h; sourceTree = "<group>"; };
 		836A224C146ECE48002A8819 /* CBRNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBRNDetailViewController.m; path = ../CBRNDetailViewController.m; sourceTree = "<group>"; };
 		83D3C5E4146E8F490056312B /* Radionuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radionuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -168,12 +171,14 @@
 				83D3C5F7146E8F490056312B /* CBRNAppDelegate.h */,
 				83D3C5F8146E8F490056312B /* CBRNAppDelegate.m */,
 				83D3C5FA146E8F490056312B /* MainStoryboard.storyboard */,
-				83D3C5FD146E8F490056312B /* CBRNViewController.h */,
-				83D3C5FE146E8F490056312B /* CBRNViewController.m */,
 				83D3C649146E94A20056312B /* CBRNDataController.h */,
 				83D3C64A146E94A20056312B /* CBRNDataController.m */,
+				83D3C5FD146E8F490056312B /* CBRNViewController.h */,
+				83D3C5FE146E8F490056312B /* CBRNViewController.m */,
 				836A224B146ECE48002A8819 /* CBRNDetailViewController.h */,
 				836A224C146ECE48002A8819 /* CBRNDetailViewController.m */,
+				83377724146FDBF6002F210F /* CBRNParticleViewController.h */,
+				83377725146FDBF6002F210F /* CBRNParticleViewController.m */,
 				83D3C64C146E950A0056312B /* Extract.h */,
 				83D3C64D146E950A0056312B /* Extract.m */,
 				83D3C64E146E950A0056312B /* RadData.h */,
@@ -384,6 +389,7 @@
 				83D3C65C146E950A0056312B /* ContinuousParticle.m in Sources */,
 				83D3C65D146E950A0056312B /* DiscreteParticle.m in Sources */,
 				836A224D146ECE48002A8819 /* CBRNDetailViewController.m in Sources */,
+				83377726146FDBF6002F210F /* CBRNParticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

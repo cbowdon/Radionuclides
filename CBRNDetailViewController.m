@@ -79,31 +79,58 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"RadioisotopeCell";
+    static NSString *MetaCellIdentifier = @"MetaCell";
+	static NSString *ContentCellIdentifier = @"ContentCell";
+
     
 	NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
 	
-	// if section is not atomic number or halflife, let it be a subtitle cell
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil) {
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-	}
-    
+	UITableViewCell *cell;
+	
     // Configure the cell...		
-	if ([sectionName isEqualToString:@"Atomic number"]) {		
-		cell.textLabel.text = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];		
+	if ([sectionName isEqualToString:@"Atomic number"]) {	
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:MetaCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MetaCellIdentifier];
+		}
+
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];	
 		cell.detailTextLabel.text = nil;
-	} else if ([sectionName isEqualToString:@"Half life"]){			
+		cell.accessoryType = UITableViewCellAccessoryNone;
+		
+	} else if ([sectionName isEqualToString:@"Half life"]){	
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:MetaCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MetaCellIdentifier];
+		}
+
+		
 		cell.textLabel.text = self.radioisotope.halfLifeString;
 		cell.detailTextLabel.text = nil;
+		cell.accessoryType = UITableViewCellAccessoryNone;
+
 	} else {		
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:ContentCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ContentCellIdentifier];
+		}
+
+		
 		id thing = [self.radioisotope.contents objectForKey:sectionName];
 		NSString *line = [[thing objectAtIndex:indexPath.row] stringValue];		
 		cell.textLabel.text = line;
 		double prob = 100*[[[thing objectAtIndex:indexPath.row] probability] doubleValue];
 		cell.detailTextLabel.text = [NSString stringWithFormat:@"%.3f%c", prob, '%'];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
 	}
-    return cell;
+
+	return cell;
+
 }
 
 #pragma mark Section header titles
@@ -113,6 +140,30 @@
     // to do: make this "Alphas (13)"
 	return [self.sections objectAtIndex:section];
 }
+
+#pragma mark - Table view selection
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    /*
+     When a row is selected, the segue creates the detail view controller as the destination.
+     Set the detail view controller's detail item to the item associated with the selected row.
+     */
+	
+	
+    if ([[segue identifier] isEqualToString:@"ShowSelectedParticles"]) {
+    
+		NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+		
+        CBRNParticleViewController *particleViewController = [segue destinationViewController];		
+		
+
+		particleViewController.contents = nil;
+
+    }
+}
+
+
 
 
 @end

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RadData.h"
+#import "CBRNParticleViewController.h"
 
 @interface CBRNDetailViewController : UITableViewController {
 	Radioisotope *_radioisotope;
