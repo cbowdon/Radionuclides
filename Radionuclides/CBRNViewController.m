@@ -10,7 +10,8 @@
 
 @implementation CBRNViewController
 
-@synthesize dataController = _dataController, radionuclides = _radionuclides;
+@synthesize dataController = _dataController;
+@synthesize radionuclides = _radionuclides, filteredRadionuclides = _filteredRadionuclides;
 
 #pragma mark - View lifecycle
 
@@ -23,6 +24,7 @@
 	// final arrays
 	UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
 	self.radionuclides = [NSMutableArray arrayWithCapacity:1];
+	self.filteredRadionuclides = [NSMutableArray arrayWithCapacity:[self.dataController.isotopes count]];
 	
 	// enumerate array and get section number
 	// add section number to item in array
@@ -49,7 +51,18 @@
 		NSArray *sortedSection = [theCollation sortedArrayFromArray:sectionArray collationStringSelector:@selector(name)];
 		[self.radionuclides addObject:sortedSection];
 	}
+	
+	NSIndexPath *startPath = [NSIndexPath indexPathForRow:0 inSection:0];
 
+	[self.tableView reloadData];
+	[self.tableView scrollToRowAtIndexPath:startPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+
+}
+
+-(void)viewDidUnload
+{
+	self.radionuclides = nil;
+	self.filteredRadionuclides = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -60,68 +73,157 @@
 
 #pragma mark - Table view 
 
+#pragma mark - Table view number of sections and rows
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [self.radionuclides count];
+ 	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		return 1;
+	} else {
+		return [self.radionuclides count];
+	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
 {
-	return [[self.radionuclides objectAtIndex:section] count];
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		return [self.filteredRadionuclides count];
+	} else {
+		return [[self.radionuclides objectAtIndex:section] count];
+	}
 }
+
+#pragma mark - Table view cells
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	static NSString *CellIdentifier = @"NameCell";
+	static NSString *NameCellIdentifier = @"NameCell";
+	static NSString *SearchResultIdentifier = @"SearchResult";	
 	
 	// Dequeue or create a cell of the appropriate type.
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
-    // Get the object to display and set the value in the cell.
-	Radioisotope *radioisotope = [[self.radionuclides objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	UITableViewCell *cell;
+	
+	// Get the object to display and set the value in the cell.
+	Radioisotope *radioisotope;
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:SearchResultIdentifier];
+		
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SearchResultIdentifier];
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+		
+        radioisotope = [self.filteredRadionuclides objectAtIndex:indexPath.row];		
+    } else {			
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:NameCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NameCellIdentifier];
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+		
+		radioisotope = [[self.radionuclides objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	}
+	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", radioisotope.halfLifeString];
-	return cell;
+	return cell;	
 }
 
-#pragma mark Section header titles
+#pragma mark - Table view section header titles
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
 {   
- 	if ([[self.radionuclides objectAtIndex:section] count] > 0) {
-		return [[[UILocalizedIndexedCollation currentCollation] sectionIndexTitles] objectAtIndex:section];
-	} else {
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
 		return nil;
+	} else {
+		if ([[self.radionuclides objectAtIndex:section] count] > 0) {
+			return [[[UILocalizedIndexedCollation currentCollation] sectionIndexTitles] objectAtIndex:section];
+		} else {
+			return nil;
+		}
 	}
 }
 
 -(NSArray*)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-	return [[UILocalizedIndexedCollation currentCollation] sectionIndexTitles];
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		return nil;
+	} else {		
+		return [[UILocalizedIndexedCollation currentCollation] sectionIndexTitles];
+	}
 }
 
 -(NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
 {
-	return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		return 0;
+	} else {
+		return [[UILocalizedIndexedCollation currentCollation] sectionForSectionIndexTitleAtIndex:index];
+	}
 }
 
-#pragma mark - Table view selection
+#pragma mark - Search 
+
+// update filteredRadionuclides
+- (void)filterContentForSearchText:(NSString*)searchText
+{
+	[self.filteredRadionuclides removeAllObjects]; // First clear the filtered array.
+	
+	// Search the flat list for products whose name matches searchText; add items that match to the filtered array.
+	//	self.filteredRadionuclides = 
+	//	[NSMutableArray arrayWithArray:[self.dataController.data findIsotopeWithName:searchText]];	
+	
+	for (Radioisotope *radi in self.dataController.isotopes)
+	{		
+		NSComparisonResult result = 
+		[radi.name compare:searchText 
+				   options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) 
+					 range:NSMakeRange(0, [searchText length])];		
+		if (result == NSOrderedSame)
+		{
+			[self.filteredRadionuclides addObject:radi];
+		}
+	}
+	
+	
+	
+}
+
+
+#pragma mark - UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+
+#pragma mark - Table view selection segue
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    
     // When a row is selected, the segue creates the detail view controller as the destination.
-	// Set the detail view controller's detail item to the item associated with the selected row.    
-    if ([[segue identifier] isEqualToString:@"ShowSelectedRadioisotope"]) {
+	// Set the detail view controller's detail item to the item associated with the selected row.    	
+	
+	NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+	CBRNDetailViewController *detailViewController = [segue destinationViewController];		
+	
+	
+	if ([[segue identifier] isEqualToString:@"ShowSelectedRadioisotope"]) {
 		
-        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
-        CBRNDetailViewController *detailViewController = [segue destinationViewController];		
-        detailViewController.radioisotope = 
+		detailViewController.radioisotope = 
 		[[self.radionuclides objectAtIndex:selectedRowIndex.section] objectAtIndex:selectedRowIndex.row];
+		
     }
+	if ([[segue identifier] isEqualToString:@"ShowSearchResult"]) {
+		
+		detailViewController.radioisotope = [self.filteredRadionuclides objectAtIndex:selectedRowIndex.row];
+		
+    }
+	
 }
 
 

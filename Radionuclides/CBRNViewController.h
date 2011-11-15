@@ -10,9 +10,13 @@
 #import "CBRNDataController.h"
 #import "CBRNDetailViewController.h"
 
-@interface CBRNViewController : UITableViewController
+@interface CBRNViewController : UITableViewController <UISearchDisplayDelegate, UISearchBarDelegate> {
+	NSMutableArray *_radionuclides;
+	NSMutableArray *_filteredRadionuclides;
+}
 
 @property (nonatomic, strong) CBRNDataController *dataController;
 @property (nonatomic, strong) NSMutableArray *radionuclides;
+@property (nonatomic, strong) NSMutableArray *filteredRadionuclides;
 
 @end
