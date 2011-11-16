@@ -64,6 +64,18 @@
                                     <segue destination="vSJ-sa-L43" kind="push" identifier="ShowSelectedRadioisotope" id="eqL-y2-Ie8"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SearchResult" id="Jda-kn-bA8">
+                                <rect key="frame" x="0.0" y="109" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="vSJ-sa-L43" kind="push" identifier="ShowSearchResult" id="obG-0g-ML7"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="3RI-4D-0NP" id="kzO-a9-P9f"/>
@@ -247,4 +259,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="obG-0g-ML7"/>
+    </inferredMetricsTieBreakers>
 </document>

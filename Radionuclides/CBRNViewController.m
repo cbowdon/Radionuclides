@@ -53,10 +53,10 @@
 	}
 	
 	NSIndexPath *startPath = [NSIndexPath indexPathForRow:0 inSection:0];
-
+	
 	[self.tableView reloadData];
 	[self.tableView scrollToRowAtIndexPath:startPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-
+	
 }
 
 -(void)viewDidUnload
@@ -127,6 +127,14 @@
 	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
 	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", radioisotope.halfLifeString];
 	return cell;	
+}
+
+# pragma mark - On selecting a SEARCH RESULT row
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		[self performSegueWithIdentifier:@"ShowSearchResult" sender:indexPath];	
+	}
 }
 
 #pragma mark - Table view section header titles
@@ -220,7 +228,8 @@
     }
 	if ([[segue identifier] isEqualToString:@"ShowSearchResult"]) {
 		
-		detailViewController.radioisotope = [self.filteredRadionuclides objectAtIndex:selectedRowIndex.row];
+		NSIndexPath *ip = sender;
+		detailViewController.radioisotope = [self.filteredRadionuclides objectAtIndex:ip.row];
 		
     }
 	
