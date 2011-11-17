@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		83377726146FDBF6002F210F /* CBRNParticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83377725146FDBF6002F210F /* CBRNParticleViewController.m */; };
 		836A224D146ECE48002A8819 /* CBRNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 836A224C146ECE48002A8819 /* CBRNDetailViewController.m */; };
+		83B1CD1314759B62004B6F15 /* icon_57.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B1CD1114759B62004B6F15 /* icon_57.png */; };
+		83B1CD1414759B62004B6F15 /* icon_114.png in Resources */ = {isa = PBXBuildFile; fileRef = 83B1CD1214759B62004B6F15 /* icon_114.png */; };
 		83D3C5E9146E8F490056312B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5E8146E8F490056312B /* UIKit.framework */; };
 		83D3C5EB146E8F490056312B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EA146E8F490056312B /* Foundation.framework */; };
 		83D3C5ED146E8F490056312B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D3C5EC146E8F490056312B /* CoreGraphics.framework */; };
@@ -67,6 +69,8 @@
 		83377725146FDBF6002F210F /* CBRNParticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRNParticleViewController.m; sourceTree = "<group>"; };
 		836A224B146ECE48002A8819 /* CBRNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBRNDetailViewController.h; path = ../CBRNDetailViewController.h; sourceTree = "<group>"; };
 		836A224C146ECE48002A8819 /* CBRNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CBRNDetailViewController.m; path = ../CBRNDetailViewController.m; sourceTree = "<group>"; };
+		83B1CD1114759B62004B6F15 /* icon_57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57.png; sourceTree = "<group>"; };
+		83B1CD1214759B62004B6F15 /* icon_114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114.png; sourceTree = "<group>"; };
 		83D3C5E4146E8F490056312B /* Radionuclides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Radionuclides.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D3C5E8146E8F490056312B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		83D3C5EA146E8F490056312B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -208,6 +212,8 @@
 				83D3C664146EB6B30056312B /* PROGENY.REC */,
 				83D3C5F0146E8F490056312B /* Radionuclides-Info.plist */,
 				83D3C5F1146E8F490056312B /* InfoPlist.strings */,
+				83B1CD1114759B62004B6F15 /* icon_57.png */,
+				83B1CD1214759B62004B6F15 /* icon_114.png */,
 				83D3C5F4146E8F490056312B /* main.m */,
 				83D3C5F6146E8F490056312B /* Radionuclides-Prefix.pch */,
 			);
@@ -344,6 +350,8 @@
 				83D3C669146EB6B30056312B /* PHOTONS.REC in Resources */,
 				83D3C66A146EB6B30056312B /* POSITRON.REC in Resources */,
 				83D3C66B146EB6B30056312B /* PROGENY.REC in Resources */,
+				83B1CD1314759B62004B6F15 /* icon_57.png in Resources */,
+				83B1CD1414759B62004B6F15 /* icon_114.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
