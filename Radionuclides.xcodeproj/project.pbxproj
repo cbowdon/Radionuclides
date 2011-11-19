@@ -25,12 +25,6 @@
 		83D3C611146E8F490056312B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C60F146E8F490056312B /* InfoPlist.strings */; };
 		83D3C614146E8F490056312B /* RadionuclidesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C613146E8F490056312B /* RadionuclidesTests.m */; };
 		83D3C64B146E94A20056312B /* CBRNDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C64A146E94A20056312B /* CBRNDataController.m */; };
-		83D3C658146E950A0056312B /* Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C64D146E950A0056312B /* Extract.m */; };
-		83D3C659146E950A0056312B /* RadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C64F146E950A0056312B /* RadData.m */; };
-		83D3C65A146E950A0056312B /* Radioisotope.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C651146E950A0056312B /* Radioisotope.m */; };
-		83D3C65B146E950A0056312B /* Progeny.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C653146E950A0056312B /* Progeny.m */; };
-		83D3C65C146E950A0056312B /* ContinuousParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C655146E950A0056312B /* ContinuousParticle.m */; };
-		83D3C65D146E950A0056312B /* DiscreteParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D3C657146E950A0056312B /* DiscreteParticle.m */; };
 		83D3C665146EB6B30056312B /* ALPHA.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C65E146EB6AF0056312B /* ALPHA.REC */; };
 		83D3C666146EB6B30056312B /* BETAS.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C65F146EB6AF0056312B /* BETAS.REC */; };
 		83D3C667146EB6B30056312B /* ELECTRON.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C660146EB6AF0056312B /* ELECTRON.REC */; };
@@ -38,6 +32,12 @@
 		83D3C669146EB6B30056312B /* PHOTONS.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C662146EB6B00056312B /* PHOTONS.REC */; };
 		83D3C66A146EB6B30056312B /* POSITRON.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C663146EB6B10056312B /* POSITRON.REC */; };
 		83D3C66B146EB6B30056312B /* PROGENY.REC in Resources */ = {isa = PBXBuildFile; fileRef = 83D3C664146EB6B30056312B /* PROGENY.REC */; };
+		83D659511477C54400E6514A /* Extract.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D659461477C54300E6514A /* Extract.m */; };
+		83D659521477C54400E6514A /* RadData.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D659481477C54300E6514A /* RadData.m */; };
+		83D659531477C54400E6514A /* Radioisotope.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D6594A1477C54300E6514A /* Radioisotope.m */; };
+		83D659541477C54400E6514A /* Progeny.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D6594C1477C54300E6514A /* Progeny.m */; };
+		83D659551477C54400E6514A /* ContinuousParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D6594E1477C54300E6514A /* ContinuousParticle.m */; };
+		83D659561477C54400E6514A /* DiscreteParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D659501477C54300E6514A /* DiscreteParticle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,18 +93,6 @@
 		83D3C61D146E8F7E0056312B /* RadData.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RadData.xcodeproj; path = ../RadData/RadData.xcodeproj; sourceTree = "<group>"; };
 		83D3C649146E94A20056312B /* CBRNDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRNDataController.h; sourceTree = "<group>"; };
 		83D3C64A146E94A20056312B /* CBRNDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRNDataController.m; sourceTree = "<group>"; };
-		83D3C64C146E950A0056312B /* Extract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Extract.h; path = ../../RadData/RadData/Extract.h; sourceTree = "<group>"; };
-		83D3C64D146E950A0056312B /* Extract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Extract.m; path = ../../RadData/RadData/Extract.m; sourceTree = "<group>"; };
-		83D3C64E146E950A0056312B /* RadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadData.h; path = ../../RadData/RadData/RadData.h; sourceTree = "<group>"; };
-		83D3C64F146E950A0056312B /* RadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadData.m; path = ../../RadData/RadData/RadData.m; sourceTree = "<group>"; };
-		83D3C650146E950A0056312B /* Radioisotope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radioisotope.h; path = ../../RadData/RadData/Radioisotope.h; sourceTree = "<group>"; };
-		83D3C651146E950A0056312B /* Radioisotope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radioisotope.m; path = ../../RadData/RadData/Radioisotope.m; sourceTree = "<group>"; };
-		83D3C652146E950A0056312B /* Progeny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Progeny.h; path = ../../RadData/RadData/Progeny.h; sourceTree = "<group>"; };
-		83D3C653146E950A0056312B /* Progeny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Progeny.m; path = ../../RadData/RadData/Progeny.m; sourceTree = "<group>"; };
-		83D3C654146E950A0056312B /* ContinuousParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinuousParticle.h; path = ../../RadData/RadData/ContinuousParticle.h; sourceTree = "<group>"; };
-		83D3C655146E950A0056312B /* ContinuousParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinuousParticle.m; path = ../../RadData/RadData/ContinuousParticle.m; sourceTree = "<group>"; };
-		83D3C656146E950A0056312B /* DiscreteParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscreteParticle.h; path = ../../RadData/RadData/DiscreteParticle.h; sourceTree = "<group>"; };
-		83D3C657146E950A0056312B /* DiscreteParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscreteParticle.m; path = ../../RadData/RadData/DiscreteParticle.m; sourceTree = "<group>"; };
 		83D3C65E146EB6AF0056312B /* ALPHA.REC */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ALPHA.REC; sourceTree = "<group>"; };
 		83D3C65F146EB6AF0056312B /* BETAS.REC */ = {isa = PBXFileReference; lastKnownFileType = file; path = BETAS.REC; sourceTree = "<group>"; };
 		83D3C660146EB6AF0056312B /* ELECTRON.REC */ = {isa = PBXFileReference; lastKnownFileType = file; path = ELECTRON.REC; sourceTree = "<group>"; };
@@ -112,6 +100,18 @@
 		83D3C662146EB6B00056312B /* PHOTONS.REC */ = {isa = PBXFileReference; lastKnownFileType = file; path = PHOTONS.REC; sourceTree = "<group>"; };
 		83D3C663146EB6B10056312B /* POSITRON.REC */ = {isa = PBXFileReference; lastKnownFileType = file; path = POSITRON.REC; sourceTree = "<group>"; };
 		83D3C664146EB6B30056312B /* PROGENY.REC */ = {isa = PBXFileReference; lastKnownFileType = file; path = PROGENY.REC; sourceTree = "<group>"; };
+		83D659451477C54300E6514A /* Extract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Extract.h; path = ../../RadData/RadData/Extract.h; sourceTree = "<group>"; };
+		83D659461477C54300E6514A /* Extract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Extract.m; path = ../../RadData/RadData/Extract.m; sourceTree = "<group>"; };
+		83D659471477C54300E6514A /* RadData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RadData.h; path = ../../RadData/RadData/RadData.h; sourceTree = "<group>"; };
+		83D659481477C54300E6514A /* RadData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RadData.m; path = ../../RadData/RadData/RadData.m; sourceTree = "<group>"; };
+		83D659491477C54300E6514A /* Radioisotope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Radioisotope.h; path = ../../RadData/RadData/Radioisotope.h; sourceTree = "<group>"; };
+		83D6594A1477C54300E6514A /* Radioisotope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Radioisotope.m; path = ../../RadData/RadData/Radioisotope.m; sourceTree = "<group>"; };
+		83D6594B1477C54300E6514A /* Progeny.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Progeny.h; path = ../../RadData/RadData/Progeny.h; sourceTree = "<group>"; };
+		83D6594C1477C54300E6514A /* Progeny.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Progeny.m; path = ../../RadData/RadData/Progeny.m; sourceTree = "<group>"; };
+		83D6594D1477C54300E6514A /* ContinuousParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ContinuousParticle.h; path = ../../RadData/RadData/ContinuousParticle.h; sourceTree = "<group>"; };
+		83D6594E1477C54300E6514A /* ContinuousParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ContinuousParticle.m; path = ../../RadData/RadData/ContinuousParticle.m; sourceTree = "<group>"; };
+		83D6594F1477C54300E6514A /* DiscreteParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiscreteParticle.h; path = ../../RadData/RadData/DiscreteParticle.h; sourceTree = "<group>"; };
+		83D659501477C54300E6514A /* DiscreteParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiscreteParticle.m; path = ../../RadData/RadData/DiscreteParticle.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,18 +183,7 @@
 				836A224C146ECE48002A8819 /* CBRNDetailViewController.m */,
 				83377724146FDBF6002F210F /* CBRNParticleViewController.h */,
 				83377725146FDBF6002F210F /* CBRNParticleViewController.m */,
-				83D3C64C146E950A0056312B /* Extract.h */,
-				83D3C653146E950A0056312B /* Progeny.m */,
-				83D3C64D146E950A0056312B /* Extract.m */,
-				83D3C64E146E950A0056312B /* RadData.h */,
-				83D3C64F146E950A0056312B /* RadData.m */,
-				83D3C650146E950A0056312B /* Radioisotope.h */,
-				83D3C651146E950A0056312B /* Radioisotope.m */,
-				83D3C652146E950A0056312B /* Progeny.h */,
-				83D3C654146E950A0056312B /* ContinuousParticle.h */,
-				83D3C655146E950A0056312B /* ContinuousParticle.m */,
-				83D3C656146E950A0056312B /* DiscreteParticle.h */,
-				83D3C657146E950A0056312B /* DiscreteParticle.m */,
+				83D659571477C57800E6514A /* RadData Files */,
 				83D3C5EF146E8F490056312B /* Supporting Files */,
 			);
 			path = Radionuclides;
@@ -246,6 +235,25 @@
 				83D3C628146E8F7E0056312B /* RadDataTests.octest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		83D659571477C57800E6514A /* RadData Files */ = {
+			isa = PBXGroup;
+			children = (
+				83D659451477C54300E6514A /* Extract.h */,
+				83D659461477C54300E6514A /* Extract.m */,
+				83D659471477C54300E6514A /* RadData.h */,
+				83D659481477C54300E6514A /* RadData.m */,
+				83D659491477C54300E6514A /* Radioisotope.h */,
+				83D6594A1477C54300E6514A /* Radioisotope.m */,
+				83D6594B1477C54300E6514A /* Progeny.h */,
+				83D6594C1477C54300E6514A /* Progeny.m */,
+				83D6594D1477C54300E6514A /* ContinuousParticle.h */,
+				83D6594E1477C54300E6514A /* ContinuousParticle.m */,
+				83D6594F1477C54300E6514A /* DiscreteParticle.h */,
+				83D659501477C54300E6514A /* DiscreteParticle.m */,
+			);
+			name = "RadData Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,12 +351,12 @@
 			files = (
 				83D3C5F3146E8F490056312B /* InfoPlist.strings in Resources */,
 				83D3C5FC146E8F490056312B /* MainStoryboard.storyboard in Resources */,
+				83D3C668146EB6B30056312B /* NUCLIDES.REC in Resources */,
 				83D3C665146EB6B30056312B /* ALPHA.REC in Resources */,
 				83D3C666146EB6B30056312B /* BETAS.REC in Resources */,
 				83D3C667146EB6B30056312B /* ELECTRON.REC in Resources */,
-				83D3C668146EB6B30056312B /* NUCLIDES.REC in Resources */,
-				83D3C669146EB6B30056312B /* PHOTONS.REC in Resources */,
 				83D3C66A146EB6B30056312B /* POSITRON.REC in Resources */,
+				83D3C669146EB6B30056312B /* PHOTONS.REC in Resources */,
 				83D3C66B146EB6B30056312B /* PROGENY.REC in Resources */,
 				83B1CD1314759B62004B6F15 /* icon_57.png in Resources */,
 				83B1CD1414759B62004B6F15 /* icon_114.png in Resources */,
@@ -390,14 +398,14 @@
 				83D3C5F9146E8F490056312B /* CBRNAppDelegate.m in Sources */,
 				83D3C5FF146E8F490056312B /* CBRNViewController.m in Sources */,
 				83D3C64B146E94A20056312B /* CBRNDataController.m in Sources */,
-				83D3C658146E950A0056312B /* Extract.m in Sources */,
-				83D3C659146E950A0056312B /* RadData.m in Sources */,
-				83D3C65A146E950A0056312B /* Radioisotope.m in Sources */,
-				83D3C65B146E950A0056312B /* Progeny.m in Sources */,
-				83D3C65C146E950A0056312B /* ContinuousParticle.m in Sources */,
-				83D3C65D146E950A0056312B /* DiscreteParticle.m in Sources */,
 				836A224D146ECE48002A8819 /* CBRNDetailViewController.m in Sources */,
 				83377726146FDBF6002F210F /* CBRNParticleViewController.m in Sources */,
+				83D659511477C54400E6514A /* Extract.m in Sources */,
+				83D659521477C54400E6514A /* RadData.m in Sources */,
+				83D659531477C54400E6514A /* Radioisotope.m in Sources */,
+				83D659541477C54400E6514A /* Progeny.m in Sources */,
+				83D659551477C54400E6514A /* ContinuousParticle.m in Sources */,
+				83D659561477C54400E6514A /* DiscreteParticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

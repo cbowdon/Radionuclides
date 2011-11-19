@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "RadData.h"
+#import "CBRNDataController.h"
 #import "CBRNParticleViewController.h"
 
 @interface CBRNDetailViewController : UITableViewController {
@@ -16,7 +17,7 @@
 }
 
 @property (nonatomic, strong) Radioisotope *radioisotope;
-@property (nonatomic, strong) NSArray *sections;
+@property (readonly, strong) NSArray *sections;
 
 -(NSArray*)sections;
 

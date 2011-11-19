@@ -91,51 +91,6 @@
 	}
 }
 
-#pragma mark - Table view cells
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-	static NSString *NameCellIdentifier = @"NameCell";
-	static NSString *SearchResultIdentifier = @"SearchResult";	
-	
-	// Dequeue or create a cell of the appropriate type.
-	UITableViewCell *cell;
-	
-	// Get the object to display and set the value in the cell.
-	Radioisotope *radioisotope;
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		
-		cell = [tableView dequeueReusableCellWithIdentifier:SearchResultIdentifier];
-		
-		if (cell == nil) {
-			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SearchResultIdentifier];
-			cell.accessoryType = UITableViewCellAccessoryNone;
-		}
-		
-        radioisotope = [self.filteredRadionuclides objectAtIndex:indexPath.row];		
-    } else {			
-		
-		cell = [tableView dequeueReusableCellWithIdentifier:NameCellIdentifier];
-		if (cell == nil) {
-			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NameCellIdentifier];
-			cell.accessoryType = UITableViewCellAccessoryNone;
-		}
-		
-		radioisotope = [[self.radionuclides objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-	}
-	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
-	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", radioisotope.halfLifeString];
-	return cell;	
-}
-
-# pragma mark - On selecting a SEARCH RESULT row
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	if (tableView == self.searchDisplayController.searchResultsTableView) {
-		[self performSegueWithIdentifier:@"ShowSearchResult" sender:indexPath];	
-	}
-}
 
 #pragma mark - Table view section header titles
 
@@ -170,6 +125,50 @@
 	}
 }
 
+#pragma mark - Table view cells
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+	static NSString *NameCellIdentifier = @"NameCell";
+	static NSString *SearchResultIdentifier = @"SearchResult";	
+	
+	// Dequeue or create a cell of the appropriate type.
+	UITableViewCell *cell;
+	
+	// Get the object to display and set the value in the cell.
+	Radioisotope *radioisotope;
+	
+
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		// search result cell
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:SearchResultIdentifier];
+		
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:SearchResultIdentifier];
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+		
+        radioisotope = [self.filteredRadionuclides objectAtIndex:indexPath.row];		
+		
+    } else {			
+		// main index cell
+		
+		cell = [tableView dequeueReusableCellWithIdentifier:NameCellIdentifier];
+		if (cell == nil) {
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NameCellIdentifier];
+			cell.accessoryType = UITableViewCellAccessoryNone;
+		}
+		
+		radioisotope = [[self.radionuclides objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	}
+	
+	cell.textLabel.text = [NSString stringWithFormat:@"%@", radioisotope.name];
+	cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", radioisotope.halfLifeString];
+	return cell;	
+}
+
+
 #pragma mark - Search 
 
 // update filteredRadionuclides
@@ -196,9 +195,14 @@
 			[self.filteredRadionuclides addObject:radi];
 		}
 	}
-	
-	
-	
+}
+
+# pragma mark - On selecting a SEARCH RESULT row
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	if (tableView == self.searchDisplayController.searchResultsTableView) {
+		[self performSegueWithIdentifier:@"ShowSearchResult" sender:indexPath];	
+	}
 }
 
 
@@ -222,7 +226,7 @@
 	
 	NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
 	CBRNDetailViewController *detailViewController = [segue destinationViewController];		
-	
+
 	
 	if ([[segue identifier] isEqualToString:@"ShowSelectedRadioisotope"]) {
 		
@@ -235,8 +239,7 @@
 		NSIndexPath *ip = sender;
 		detailViewController.radioisotope = [self.filteredRadionuclides objectAtIndex:ip.row];
 		
-    }
-	
+    }	
 }
 
 

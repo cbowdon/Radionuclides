@@ -8,7 +8,6 @@
 
 #import "CBRNDetailViewController.h"
 
-
 @implementation CBRNDetailViewController
 
 @synthesize radioisotope = _radioisotope, sections = _sections;
@@ -52,6 +51,12 @@
     [super viewDidLoad];
 	
 	self.title = self.radioisotope.name;
+}
+
+-(void)viewDidUnload
+{
+	_sections = nil;
+	self.radioisotope = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -163,19 +168,24 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
+	NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];	
+	NSString *sectionName = [self.sections objectAtIndex:selectedRowIndex.section];
 	
 	if ([[segue identifier] isEqualToString:@"ShowSelectedParticles"]) {
     
-		NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];	
-		NSString *sectionName = [self.sections objectAtIndex:selectedRowIndex.section];
 		NSArray *particles = [self.radioisotope.contents objectForKey:sectionName];
 		NSString *pType = [self.sections objectAtIndex:selectedRowIndex.section];
 		
         CBRNParticleViewController *particleViewController = [segue destinationViewController];		
 		particleViewController.contents = particles;
 		particleViewController.particleType = pType;
-    }
+    } else if ([[segue identifier] isEqualToString:@"ShowProgeny"]) {
+		
+		Radioisotope *radi = [[self.radioisotope.progeny objectAtIndex:0] isotope];
 
+		CBRNDetailViewController *detailViewController = [segue destinationViewController];		
+		detailViewController.radioisotope = radi;
+	}
 }
 
 

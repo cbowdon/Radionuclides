@@ -21,6 +21,12 @@
 	self.title = self.particleType;
 }
 
+-(void)viewDidUnload
+{
+	self.contents = nil;
+	self.particleType = nil;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
