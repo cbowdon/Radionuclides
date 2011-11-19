@@ -11,6 +11,7 @@
                 <navigationController definesPresentationContext="YES" id="oVd-MG-EKQ" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="e3h-iM-guk">
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.80392158031463623" green="0.60784316062927246" blue="0.11372549086809158" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="3RI-4D-0NP" kind="relationship" relationship="rootViewController" id="Vlz-z5-Cfc"/>
@@ -36,7 +37,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NameCell" textLabel="k4D-mV-PRk" detailTextLabel="OML-Rr-dj7" rowHeight="43" style="IBUITableViewCellStyleSubtitle" id="aJL-Pc-5Sh">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NameCell" textLabel="k4D-mV-PRk" detailTextLabel="OML-Rr-dj7" rowHeight="43" style="IBUITableViewCellStyleSubtitle" id="aJL-Pc-5Sh">
                                 <rect key="frame" x="0.0" y="66" width="320" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -243,7 +244,7 @@
                     <navigationItem key="navigationItem" id="XjJ-Mb-lwG"/>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="1298" y="-282"/>
+            <point key="canvasLocation" x="1228" y="-184"/>
         </scene>
     </scenes>
     <classes>

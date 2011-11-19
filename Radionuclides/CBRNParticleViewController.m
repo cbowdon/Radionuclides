@@ -68,4 +68,34 @@
     return cell;
 }
 
+
+# pragma mark - Popup menu
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
+{	
+	return YES;		
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    return (action == @selector(copy:));
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    if (action == @selector(copy:)) {		
+
+		NSString *dataString = nil;
+		
+		// get the cell data into a string		
+		id particle = [self.contents objectAtIndex:indexPath.row];
+		double prob = 100*[[particle probability] doubleValue];
+		dataString = [NSString stringWithFormat:@"%@ %.3f%c", [particle stringValue], prob, '%'];
+					   
+		// put on the general pasteboard
+		UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+		[gpBoard setString:dataString];
+	}
+}
+
 @end

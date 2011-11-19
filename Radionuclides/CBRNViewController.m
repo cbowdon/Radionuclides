@@ -20,12 +20,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	self.title = NSLocalizedString(@"Radionuclides", @"Master view navigation title");
-	
+
 	// final arrays
 	UILocalizedIndexedCollation *theCollation = [UILocalizedIndexedCollation currentCollation];
 	self.radionuclides = [NSMutableArray arrayWithCapacity:1];
 	self.filteredRadionuclides = [NSMutableArray arrayWithCapacity:[self.dataController.isotopes count]];
-	
+
 	// enumerate array and get section number
 	// add section number to item in array
 	for (Radioisotope *ri in self.dataController.isotopes) {
@@ -53,14 +53,14 @@
 	}
 	
 	NSIndexPath *startPath = [NSIndexPath indexPathForRow:0 inSection:0];
-	
+
 	[self.tableView reloadData];
 	[self.tableView scrollToRowAtIndexPath:startPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-	
 }
 
 -(void)viewDidUnload
 {
+	self.dataController = nil;
 	self.radionuclides = nil;
 	self.filteredRadionuclides = nil;
 }
@@ -90,7 +90,6 @@
 		return [[self.radionuclides objectAtIndex:section] count];
 	}
 }
-
 
 #pragma mark - Table view section header titles
 
@@ -241,6 +240,35 @@
 		
     }	
 }
+
+# pragma mark - Popup menu
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
+{	
+	return YES;		
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    return (action == @selector(copy:));
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    if (action == @selector(copy:)) {		
+		
+		NSString *dataString = nil;
+		
+		// get the cell data into a string		
+		Radioisotope *rad = [[self.radionuclides objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+		dataString = rad.name;
+		
+		// put on the general pasteboard
+		UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+		[gpBoard setString:dataString];
+	}
+}
+
 
 
 @end

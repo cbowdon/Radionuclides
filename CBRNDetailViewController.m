@@ -33,7 +33,7 @@
 			[mut addObject:[NSString stringWithFormat:@"Positrons"]];
 		}
 		if (self.radioisotope.nNegatrons > 0) {
-			[mut addObject:[NSString stringWithFormat:@"Negatrons"]];
+			[mut addObject:[NSString stringWithFormat:@"IC electrons"]];
 		}
 		if (self.radioisotope.nPhotons > 0) {
 			[mut addObject:[NSString stringWithFormat:@"Photons"]];
@@ -114,12 +114,12 @@
 		if (cell == nil) {
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:MetaCellIdentifier];
 		}
-
+		
 		
 		cell.textLabel.text = self.radioisotope.halfLifeString;
 		cell.detailTextLabel.text = nil;
 		cell.accessoryType = UITableViewCellAccessoryNone;
-
+		
 	} else if ([sectionName isEqualToString:@"Progeny"]) {
 		// the progeny cell contains the progeny and their probability
 		
@@ -150,11 +150,55 @@
 		cell.textLabel.text = line;
 		cell.detailTextLabel.text = nil;
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
 	}
 	
 	return cell;
+	
+}
 
+# pragma mark - Popup menu
+
+- (BOOL)tableView:(UITableView *)tableView shouldShowMenuForRowAtIndexPath:(NSIndexPath *)indexPath
+{	
+	// halflife and atomic number and progeny only
+	
+	NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+	
+	if ([sectionName isEqualToString:@"Half life"] ||
+		[sectionName isEqualToString:@"Atomic number"] ||
+		[sectionName isEqualToString:@"Progeny"]) {
+		return YES;		
+	} else {
+		return NO;
+	}
+}
+
+- (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    return (action == @selector(copy:));
+}
+
+- (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
+{
+    if (action == @selector(copy:)) {
+		
+		NSString *sectionName = [self.sections objectAtIndex:indexPath.section];
+		NSString *dataString = nil;
+		
+		// get the cell data into a string
+		if ([sectionName isEqualToString:@"Half life"]) {
+			dataString = self.radioisotope.halfLifeString;					
+		} else if ([sectionName isEqualToString:@"Atomic number"]) {
+			dataString = [NSString stringWithFormat:@"%i", self.radioisotope.atomicNumber];
+		} else if ([sectionName isEqualToString:@"Progeny"]) {
+			Progeny *prog = [self.radioisotope.progeny objectAtIndex:indexPath.row];
+			dataString = [NSString stringWithFormat:@"%@\t%.3f%c", prog.name, 100*[prog.probability doubleValue],'%'];
+		} 
+		
+		// put on the general pasteboard
+		UIPasteboard *gpBoard = [UIPasteboard generalPasteboard];
+		[gpBoard setString:dataString];
+	}
 }
 
 #pragma mark Section header titles
@@ -172,7 +216,7 @@
 	NSString *sectionName = [self.sections objectAtIndex:selectedRowIndex.section];
 	
 	if ([[segue identifier] isEqualToString:@"ShowSelectedParticles"]) {
-    
+		
 		NSArray *particles = [self.radioisotope.contents objectForKey:sectionName];
 		NSString *pType = [self.sections objectAtIndex:selectedRowIndex.section];
 		
@@ -182,7 +226,7 @@
     } else if ([[segue identifier] isEqualToString:@"ShowProgeny"]) {
 		
 		Radioisotope *radi = [[self.radioisotope.progeny objectAtIndex:0] isotope];
-
+		
 		CBRNDetailViewController *detailViewController = [segue destinationViewController];		
 		detailViewController.radioisotope = radi;
 	}
