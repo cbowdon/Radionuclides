@@ -181,14 +181,18 @@
 	//	self.filteredRadionuclides = 
 	//	[NSMutableArray arrayWithArray:[self.dataController.data findIsotopeWithName:searchText]];	
 	
+	NSUInteger massSearch = [searchText integerValue];
 	for (Radioisotope *radi in self.dataController.isotopes)
 	{		
-		NSComparisonResult result = 
+		NSComparisonResult nameResult = 
 		[radi.name compare:searchText 
 				   options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch) 
 					 range:NSMakeRange(0, [searchText length])];		
-		if (result == NSOrderedSame)
+		if (nameResult == NSOrderedSame)
 		{
+			[self.filteredRadionuclides addObject:radi];
+		}
+		if (radi.mass == massSearch) {
 			[self.filteredRadionuclides addObject:radi];
 		}
 	}

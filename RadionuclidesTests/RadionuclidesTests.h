@@ -7,7 +7,15 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "RadData.h"
 
-@interface RadionuclidesTests : SenTestCase
+@interface RadionuclidesTests : SenTestCase {
+	RadData *rad;
+	Radioisotope *first;
+	Radioisotope *am241;
+	Radioisotope *sr90;
+	Radioisotope *xe123;
+	Radioisotope *last;
+}
 
 @end
